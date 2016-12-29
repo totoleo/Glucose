@@ -1,0 +1,61 @@
+@charset=UTF-8;
+.design {
+    width: 100%;
+    height: 100%;
+}
+.design > .left {
+    float: left;
+    width: 205px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0px 0px 6px #ccc;
+}
+.design > .right {
+    float: left;
+    width: calc(100% - 205px);
+    height: 100%;
+    overflow: auto;
+}
+.design > .left .modules-define {
+    margin: 5px;
+}
+.design > .left .modules-define li {
+    display: inline-block;
+    width: 58px; height: 35px;
+    line-height: 35px;
+    margin: 1px;
+    border: 1px solid #ccc;
+    cursor: move;
+}
+.design > .left .modules-define li span {
+    display: block;;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    user-select:none;
+}
+.design > .left .module_tmp {
+    display: none;
+    width: 65px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px dashed #ccc;
+    background-color: #efefef;
+    position: absolute;
+    user-select:none;
+    cursor: default;
+    opacity: .8;
+}
+.design > .right .module.hover {
+    background-color: rgba(61, 178, 255, 0.43);
+    border: 1px solid #3db2ff;
+}
+.design > .right .module {
+    border: 1px solid #eee;
+}
+.design > .right .tips {
+    position: absolute;
+    top: 0px; left: 0px;
+    background-color: yellow;
+}

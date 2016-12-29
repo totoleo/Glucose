@@ -1,0 +1,58 @@
+.container {
+    width: 100%;
+    color: #000;
+}
+
+.container .modules {
+    width: 950px;
+    margin: 0 auto;
+}
+
+.container .module-list {
+    width: 100%;
+    float: left;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.container .module-list .left {
+    width: 190px;
+    min-height: 20px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    margin-right: 4px;
+}
+
+.container .module-list .right {
+    width: 750px;
+    min-height: 20px;
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+
+.container .module-list .center {
+    width: 950px;
+    min-height: 20px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.container .module {
+    width: 100%;
+    min-height: 50px;
+    position: relative;
+}
+
+.container .module-default {
+    display: block;
+    width: calc(100% - 2px);
+    height: 20px;
+    line-height: 20px;
+    padding-left: 2px;
+    border: 1px dashed #09f;
+    background-color: #c0e6ff;
+    position: relative;
+}
