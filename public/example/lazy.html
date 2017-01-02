@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            延迟加载DIV
+        </title>
+    </head>
+    <body>
+        <div>
+            <div style="background: orange; height: 300px;" class="i-lazy" data-text="a">
+            </div>
+            <div style="background: green; height: 300px;" class="i-lazy" data-text="b">
+            </div>
+            <div style="background: pink; height: 300px;" class="i-lazy" data-text="c">
+            </div>
+            <div style="background: yellow; height: 300px;" class="i-lazy" data-text="d">
+            </div>
+            <div style="background: #CAD23A; height: 300px;" class="i-lazy" data-text="e">
+            </div>
+            <div style="background: #84FF0F; height: 300px;" class="i-lazy" data-text="f">
+            </div>
+            <div style="background: gray; height: 300px;" class="i-lazy" data-text="g">
+            </div>
+            <div style="background: red; height: 300px;" class="i-lazy" data-text="h">
+            </div>
+            <div style="background: blue; height: 300px;" class="i-lazy" data-text="i">
+            </div>
+            <div style="background: #09f; height: 300px;" class="i-lazy" data-text="j">
+            </div>
+            <div style="background: #19ACAA; height: 300px;" class="i-lazy" data-text="k">
+            </div>
+            <div style="background: #9a9a11; height: 300px;" class="i-lazy" data-text="l">
+            </div>
+        </div>
+        <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript">
+        	$(function(){
+        		var scroll = {
+        			_top: 0,
+        			_height: 0,
+        			load: function(){
+        				scroll._top = (scroll._top = $(this).scrollTop()) == undefined ? 0 : scroll._top,
+        				scroll._height = scroll._top+$(window).innerHeight();
+        				var className = 'i-lazy';
+        				var lazyList = $('.'+className);
+        				if (lazyList.length == 0) {
+        					$(document).unbind('scroll');return;
+        				}
+        				lazyList.each(function(index,doc){
+        					var self = $(doc),
+        						top = self.offset().top,
+        						bottom = top + self.outerHeight();
+        					if (scroll._height >= top && scroll._top <= bottom) {
+        						self.html(self.data('text'));
+        						self.fadeOut().fadeIn();
+        						self.removeClass(className);
+        					}
+        				});
+        			}
+        		}
+        		$(document).bind('scroll', scroll.load);
+        		scroll.load();
+        	});
+        </script>
+    </body>
+</html>

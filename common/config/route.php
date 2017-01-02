@@ -8,5 +8,5 @@
  */
 return [
     // 路由演示
-    "error-(:status)"  => "home/error/s",
+    "error-(:status)" => "home/error/s",
 ];

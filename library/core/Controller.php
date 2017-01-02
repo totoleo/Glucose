@@ -14,25 +14,21 @@ use core\plugins\Template;
 
 class Controller extends Template
 {
-    private $layout        = '';
-    private $layoutEnable  = false;
-    private $layoutContent = '';
+    protected $layout      = '';
+    private $layoutEnable  = true;
+    private $layoutContent = '_FILE_';
     private $layoutPath    = '';
+    private $title         = '';
 
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function response($data = [], $type = 'json')
-    {
-        header("Content-type:text/json;charset=utf-8");
-        die(json_encode($data, JSON_UNESCAPED_UNICODE));
-    }
-
     public function display($a = "", $data = [])
     {
         $a = $a ? $this->layoutPath . $a : getViewPath();
+        parent::assign('_TITLE_', $this->title);
         if ($this->layoutEnable) {
             parent::assign($this->layoutContent, $a);
             parent::display($this->layout, $data);
@@ -51,10 +47,14 @@ class Controller extends Template
         if (!$layout) {
             $this->layoutEnable = false;
         } else {
-            $this->layoutEnable  = true;
-            $this->layoutContent = $file;
-            $this->layout        = $layout;
+            $this->layoutEnable = true;
         }
+        $this->layoutContent = $file;
+    }
+
+    public function setTtitle($title)
+    {
+        $this->title = $title;
     }
 
     /**

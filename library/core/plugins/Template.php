@@ -20,7 +20,7 @@ class Template
     {
         $this->_smarty_tmp = new \Smarty();
         // 设置模板路径
-        $this->_smarty_tmp->setTemplateDir(ROOT_PATH . '/theme/' . _C('TEMPLATE_THEME', 'default'));
+        $this->_smarty_tmp->setTemplateDir(ROOT_PATH . '/' . C('DEFAULT_TEMPLATE'));
         // 设置编译路径(需读写权限)
         $this->_smarty_tmp->setCompileDir(ROOT_PATH . C('RUNTIME') . '/smarty/compiled');
         // 设置缓存路径
@@ -33,20 +33,18 @@ class Template
         $this->_smarty_tmp->setForceCompile(false);
         // 是否启用PHP代码
         // $this->_smarty_tmp->allow_php_templates = true;
-        //前端时间戳
-        $this->_smarty_tmp->assign('TIME_CSS', date('Ymd', time()));
     }
 
-    public function assign($a, $b)
+    public function assign($name, $value)
     {
-        $this->_smarty_tmp->assign($a, $b);
+        $this->_smarty_tmp->assign($name, $value);
     }
 
-    public function display($a, $data = [])
+    public function display($name, $data = [])
     {
         foreach ($data as $key => $value) {
             $this->_smarty_tmp->assign($key, $value);
         }
-        $this->_smarty_tmp->display($a);
+        $this->_smarty_tmp->display($name);
     }
 }

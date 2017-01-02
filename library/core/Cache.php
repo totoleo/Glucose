@@ -45,6 +45,25 @@ class Cache
      */
     public static function getMongoDb()
     {
+        // $bulk = $db->getBulk();
+        // $bulk->insert([
+        //     'name' => 'hello',
+        // ]);
+        // $result = $db->executeBulk('users', $bulk);
+
+        // $bulk = $db->getBulk();
+        // $bulk->update(['name' => 'test'], ['name' => '1'], ['limit' => 1]);
+        // $result = $db->executeBulk('users', $bulk);
+
+        // $bulk = $db->getBulk();
+        // $bulk->delete(['name' => '1']);
+        // $result = $db->executeBulk('users', $bulk);
+
+        // $result = $db->find('users');
+        // foreach ($result as $cursor) {
+        //     debug($cursor);
+        // }
+
         $name = '_MONGODB';
         return self::getObj($name, function () {
             return new cache\_MongoDB();

@@ -11,36 +11,14 @@
 namespace home;
 
 use common\BaseController;
-use core\Cache;
 
 class index extends BaseController
 {
+    protected $layout = 'layout/main.htm';
+
     public function index()
     {
+        $this->setTtitle('Hello Glucose!');
         $this->display();
-    }
-
-    public function test()
-    {
-        $db = Cache::getMongoDb();
-
-//        $bulk = $db->getBulk();
-//        $bulk->insert([
-//            'name' => 'hello'
-//        ]);
-//        $result = $db->executeBulk('users', $bulk);
-
-//        $bulk = $db->getBulk();
-//        $bulk->update(['name' => 'test'], ['name' => '1'], ['limit' => 1]);
-//        $result = $db->executeBulk('users', $bulk);
-
-//        $bulk = $db->getBulk();
-//        $bulk->delete(['name' => '1']);
-//        $result = $db->executeBulk('users', $bulk);
-
-        $result = $db->find('users');
-        foreach ($result as $cursor) {
-            debug($cursor);
-        }
     }
 }

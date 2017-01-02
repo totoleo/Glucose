@@ -38,16 +38,4 @@ class BaseController extends Controller
             exit;
         }
     }
-
-    /*
-     * 判断是否来自ajax请求
-     */
-    public function IsAjax()
-    {
-        if (isset($_SERVER["HTTP_X_REQUESTED_WITH"]) && strtolower($_SERVER["HTTP_X_REQUESTED_WITH"]) == "xmlhttprequest") {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
