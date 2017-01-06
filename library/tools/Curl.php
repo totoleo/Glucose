@@ -18,11 +18,9 @@ class Curl
     public function __construct()
     {
         $this->load();
-        $this->api   = C('DONUT_API');
-        $this->token = C('DONUT_TOKEN');
         $this->curl  = new \curl();
 
-        $this->curl->options['CURLOPT_USERPWD'] = $this->token;
+        $this->curl->options['CURLOPT_USERPWD'] = '';
     }
 
     /**
